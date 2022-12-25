@@ -3,6 +3,7 @@ using Goodread.Core.Test.Builders;
 using Xunit;
 
 namespace Goodreads.Core.Test.Entities;
+
 public class LiteraryGenderTest
 {
     [Theory]

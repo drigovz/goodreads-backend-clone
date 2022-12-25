@@ -3,7 +3,7 @@ using Goodreads.Core.Validations;
 
 namespace Goodreads.Core.Entities;
 
-public class LiteraryGender : BaseEntity
+public sealed class LiteraryGender : BaseEntity
 {
     public string Title { get; private set; }
     public string Description { get; private set; }
