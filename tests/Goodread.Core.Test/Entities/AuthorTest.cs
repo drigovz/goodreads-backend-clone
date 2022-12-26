@@ -1,4 +1,5 @@
 ﻿using System;
+using Bogus;
 using FluentAssertions;
 using Goodread.Core.Test.Builders;
 using Goodreads.Core.Enums;
@@ -21,7 +22,7 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Name"));
     }
-    
+
     [Theory]
     [InlineData("")]
     [InlineData(null)]
@@ -35,7 +36,7 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("City"));
     }
-    
+
     [Theory]
     [InlineData("")]
     [InlineData(null)]
@@ -49,7 +50,7 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("State"));
     }
-    
+
     [Theory]
     [InlineData("")]
     [InlineData(null)]
@@ -63,7 +64,7 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Country"));
     }
-    
+
     [Fact]
     [Trait("Domain", "Author")]
     public void Should_Not_Add_Author_With_Invalid_Birthdate()
@@ -75,7 +76,7 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Birthdate"));
     }
-    
+
     [Fact]
     [Trait("Domain", "Author")]
     public void Should_Not_Add_Author_With_Invalid_Gender()
@@ -87,5 +88,35 @@ public class AuthorTest
         author.ValidationResult.Errors.Should().NotBeEmpty();
         author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
         author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Gender"));
+    }
+
+    [Fact]
+    [Trait("Domain", "Author")]
+    public void Should_Valid_Born_Description()
+    {
+        Faker faker = new();
+        string city = faker.Address.City();
+        string state = faker.Address.StateAbbr();
+        string country = faker.Address.Country();
+        DateTime birthdate = faker.Date.Past(10);
+
+        var author = AuthorBuilder.New()
+            .AuthorWithCity(city)
+            .AuthorWithState(state)
+            .AuthorWithCountry(country)
+            .AuthorWithBirthdate(birthdate)
+            .Build();
+
+        var bornDesc = author.GetBornDescription();
+
+        author.Valid.Should().BeTrue();
+        author.City.Should().Be(city);
+        author.State.Should().Be(state);
+        author.Country.Should().Be(country);
+        author.Birthdate.Should().Be(birthdate);
+        bornDesc.Should().Contain(city);
+        bornDesc.Should().Contain(state);
+        bornDesc.Should().Contain(country);
+        bornDesc.Should().Contain($"{birthdate:dd MMMM, yyyy}");
     }
 }

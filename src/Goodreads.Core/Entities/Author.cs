@@ -44,6 +44,6 @@ public sealed class Author : BaseEntity
         return this;
     }
 
-    public string GetBornDescription =>
+    public string GetBornDescription() =>
         $"in {City}, {State}, {Country} \n{Birthdate:dd MMMM, yyyy}";
 }
