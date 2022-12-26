@@ -16,8 +16,6 @@ public sealed class Author : BaseEntity
 
     public Author(string name, string city, string state, string country, DateTime birthdate, string website, string description, Gender gender)
     {
-        EntityValidation(this, new AuthorValidation());
-
         Name = name;
         City = city;
         State = state;
@@ -26,12 +24,12 @@ public sealed class Author : BaseEntity
         Website = website;
         Description = description;
         Gender = gender;
+        
+        EntityValidation(this, new AuthorValidation());
     }
 
     public Author Update(string name, string city, string state, string country, DateTime birthdate, string website, string description, Gender gender)
     {
-        EntityValidation(this, new AuthorValidation());
-
         Name = name;
         City = city;
         State = state;
@@ -41,6 +39,8 @@ public sealed class Author : BaseEntity
         Description = description;
         Gender = gender;
 
+        EntityValidation(this, new AuthorValidation());
+        
         return this;
     }
 

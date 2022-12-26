@@ -15,10 +15,11 @@ public abstract class BaseEntity
     }
 
     private DateTime? _createdAt;
+
     public DateTime? CreatedAt
     {
         get => _createdAt;
-        set => _createdAt = (value == null ? DateTime.UtcNow : value);
+        set => _createdAt = value ?? DateTime.UtcNow;
     }
 
     public DateTime? UpdatedAt { get; set; }

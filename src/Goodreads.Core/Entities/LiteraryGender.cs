@@ -10,10 +10,10 @@ public sealed class LiteraryGender : BaseEntity
 
     public LiteraryGender(string title, string description)
     {
-        EntityValidation(this, new LiteraryGenreValidation());
-
         Title = title;
         Description = description;
+        
+        EntityValidation(this, new LiteraryGenreValidation());
     }
 
     public LiteraryGender Update(string title, string description)
