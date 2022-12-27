@@ -19,8 +19,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Name"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Name"));
     }
 
     [Theory]
@@ -33,8 +33,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("City"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("City"));
     }
 
     [Theory]
@@ -47,8 +47,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("State"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("State"));
     }
 
     [Theory]
@@ -61,8 +61,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Country"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Country"));
     }
 
     [Fact]
@@ -73,8 +73,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Birthdate"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Birthdate"));
     }
 
     [Fact]
@@ -86,8 +86,8 @@ public class AuthorTest
 
         author.Valid.Should().BeFalse();
         author.ValidationResult.Errors.Should().NotBeEmpty();
-        author.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        author.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Gender"));
+        author.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        author.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Gender"));
     }
 
     [Fact]

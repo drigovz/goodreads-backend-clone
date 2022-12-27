@@ -7,6 +7,6 @@ public class ReviewValidation : AbstractValidator<Review>
 {
     public ReviewValidation()
     {
-        RuleFor(x => x.Comment).NotNull().NotEmpty();
+        RuleFor(_ => _.Comment).NotNull().NotEmpty();
     }
 }

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Goodread.Core.Test.Builders;
 using Xunit;
 
@@ -16,7 +16,7 @@ public class ReviewTest
 
         review.Valid.Should().BeFalse();
         review.ValidationResult.Errors.Should().NotBeEmpty();
-        review.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        review.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Comment"));
+        review.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        review.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Comment"));
     }
 }

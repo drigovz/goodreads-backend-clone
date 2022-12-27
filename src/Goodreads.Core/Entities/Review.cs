@@ -1,4 +1,4 @@
-﻿using Goodreads.Core.Validations;
+using Goodreads.Core.Validations;
 
 namespace Goodreads.Core.Entities;
 

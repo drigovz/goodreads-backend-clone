@@ -5,10 +5,10 @@ namespace Goodread.Core.Test.Builders;
 
 public class LiteraryGenderBuilder
 {
-    static readonly Faker faker = new();
+    private static readonly Faker _faker = new();
 
-    private string Title = faker.Name.Random.Word();
-    private string Description = faker.Name.Random.Words();
+    private string Title = _faker.Name.Random.Word();
+    private string Description = _faker.Name.Random.Words();
 
     public static LiteraryGenderBuilder New() => new();
 

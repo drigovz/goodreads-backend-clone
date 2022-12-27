@@ -8,12 +8,12 @@ public class AuthorValidation : AbstractValidator<Author>
 {
     public AuthorValidation()
     {
-        RuleFor(x => x.Name).NotNull().NotEmpty();
-        RuleFor(x => x.City).NotNull().NotEmpty();
-        RuleFor(x => x.State).NotNull().NotEmpty();
-        RuleFor(x => x.Country).NotNull().NotEmpty();
-        RuleFor(x => x.Birthdate).DateTimeValidate();
-        RuleFor(x => x.Gender).Must(IsValidEnumValue);
+        RuleFor(_ => _.Name).NotNull().NotEmpty();
+        RuleFor(_ => _.City).NotNull().NotEmpty();
+        RuleFor(_ => _.State).NotNull().NotEmpty();
+        RuleFor(_ => _.Country).NotNull().NotEmpty();
+        RuleFor(_ => _.Birthdate).DateTimeValidate();
+        RuleFor(_ => _.Gender).Must(IsValidEnumValue);
     }
     
     private static bool IsValidEnumValue(Gender value)

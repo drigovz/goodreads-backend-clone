@@ -16,8 +16,8 @@ public class LiteraryGenderTest
 
         literaryGender.Valid.Should().BeFalse();
         literaryGender.ValidationResult.Errors.Should().NotBeEmpty();
-        literaryGender.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        literaryGender.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Title"));
+        literaryGender.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        literaryGender.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Title"));
     }
 
     [Theory]
@@ -30,7 +30,7 @@ public class LiteraryGenderTest
 
         literaryGender.Valid.Should().BeFalse();
         literaryGender.ValidationResult.Errors.Should().NotBeEmpty();
-        literaryGender.ValidationResult.Errors.Should().HaveCount(c => c > 0).And.OnlyHaveUniqueItems();
-        literaryGender.ValidationResult.Errors.Should().Contain(x => x.ErrorMessage.Contains("Description"));
+        literaryGender.ValidationResult.Errors.Should().HaveCountGreaterThan(0).And.OnlyHaveUniqueItems();
+        literaryGender.ValidationResult.Errors.Should().Contain(_ => _.ErrorMessage.Contains("Description"));
     }
 }

@@ -7,19 +7,19 @@ namespace Goodread.Core.Test.Builders;
 
 public class AuthorBuilder
 {
-    static readonly Faker faker = new();
+    private static readonly Faker _faker = new();
 
-    static Random _random = new();
+    private static Random _random = new();
     private static int _ramdomNumber = _random.Next(110);
     
-    private string Name = faker.Person.FullName;
-    private string City = faker.Address.City();
-    private string State = faker.Address.StateAbbr();
-    private string Country = faker.Address.Country();
-    private DateTime Birthdate = faker.Date.Past(_ramdomNumber);
-    private string Website = faker.Internet.Url();
-    private string Description = faker.Random.Words();
-    public Gender Gender = faker.PickRandom<Gender>();
+    private string Name = _faker.Person.FullName;
+    private string City = _faker.Address.City();
+    private string State = _faker.Address.StateAbbr();
+    private string Country = _faker.Address.Country();
+    private DateTime Birthdate = _faker.Date.Past(_ramdomNumber);
+    private string Website = _faker.Internet.Url();
+    private string Description = _faker.Random.Words();
+    public Gender Gender = _faker.PickRandom<Gender>();
 
     public static AuthorBuilder New() => new();
     
