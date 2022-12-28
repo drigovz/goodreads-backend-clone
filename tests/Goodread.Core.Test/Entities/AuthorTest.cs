@@ -9,6 +9,13 @@ namespace Goodreads.Core.Test.Entities;
 
 public class AuthorTest
 {
+    private static Faker _faker;
+
+    public AuthorTest()
+    {
+        _faker = new Faker();
+    }
+
     [Theory]
     [InlineData("")]
     [InlineData(null)]
@@ -118,5 +125,35 @@ public class AuthorTest
         bornDesc.Should().Contain(state);
         bornDesc.Should().Contain(country);
         bornDesc.Should().Contain($"{birthdate:dd MMMM, yyyy}");
+    }
+
+    [Fact]
+    [Trait("Domain", "Author")]
+    public void Should_Update_Author()
+    {
+        var author = AuthorBuilder.New().Build();
+
+        int year = _faker.Random.Int(1950, 2000);
+        string name = _faker.Person.FullName;
+        string city = _faker.Address.City();
+        string state = _faker.Address.StateAbbr();
+        string country = _faker.Address.Country();
+        DateTime birthdate = _faker.Date.Past();
+        string website = _faker.Internet.Url();
+        string description = _faker.Random.Words();
+        Gender gender = _faker.PickRandom<Gender>();
+
+        var authorUpdated = author.Update(name, city, state, country, birthdate, website, description, gender);
+
+        authorUpdated.Valid.Should().BeTrue();
+        authorUpdated.ValidationResult.Errors.Should().BeEmpty();
+        authorUpdated.ValidationResult.Errors.Should().HaveCount(_ => _ == 0).And.OnlyHaveUniqueItems();
+        authorUpdated.Name.Should().Be(name);
+        authorUpdated.City.Should().Be(city);
+        authorUpdated.State.Should().Be(state);
+        authorUpdated.Country.Should().Be(country);
+        authorUpdated.Website.Should().Be(website);
+        authorUpdated.Description.Should().Be(description);
+        authorUpdated.Gender.Should().Be(gender);
     }
 }
