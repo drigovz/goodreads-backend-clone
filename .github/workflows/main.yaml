@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     env:
-      PATH_TEST: ./tests/Goodreads.Core.Test/Goodreads.Core.Test.csproj
+      PATH_TEST: ./tests/Goodread.Core.Test/Goodreads.Core.Test.csproj
 
     runs-on: ubuntu-latest
     strategy:
