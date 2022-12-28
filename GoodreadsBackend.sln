@@ -19,6 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodreads.Api", "src\Goodre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodreads.Core.Test", "tests\Goodread.Core.Test\Goodreads.Core.Test.csproj", "{B2636CA3-EE7E-4204-9078-ED0BF09A2BEB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{240C71FE-3C9C-422A-BDEC-E051CB5E370E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "worflows", "worflows", "{F35CAAA7-BFAA-4095-9BDC-FA0E7057308E}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main.yaml = .github\workflows\main.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +67,7 @@ Global
 		{EF10B3C1-98ED-4C2D-895E-AA6EB4CE7271} = {176E6D5B-A1BA-43B2-9D89-5102D25587AE}
 		{CD2FD7A2-59F5-43AA-B489-15776873C5DB} = {176E6D5B-A1BA-43B2-9D89-5102D25587AE}
 		{B2636CA3-EE7E-4204-9078-ED0BF09A2BEB} = {5A950BC9-B850-494C-8949-7B2CB80A9387}
+		{F35CAAA7-BFAA-4095-9BDC-FA0E7057308E} = {240C71FE-3C9C-422A-BDEC-E051CB5E370E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6F04218-F4C8-4B15-97A0-1F9915EE6533}
