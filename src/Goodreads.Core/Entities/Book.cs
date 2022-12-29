@@ -14,14 +14,12 @@ public sealed class Book : BaseEntity
     public List<LiteraryGender> LiteraryGenders { get; private set; }
     public List<Review> Reviews { get; private set; }
 
-    public Book(string title, string summary, string description, string thumb, List<Author> authors, List<LiteraryGender> literaryGenders)
+    public Book(string title, string summary, string description, string thumb)
     {
         Title = title;
         Summary = summary;
         Description = description;
         Thumb = thumb;
-        Authors = authors;
-        LiteraryGenders = literaryGenders;
 
         EntityValidation(this, new BookValidator());
     }
@@ -46,12 +44,16 @@ public sealed class Book : BaseEntity
 
     public List<Author> AddAuthors(Author author)
     {
+        Authors ??= new List<Author>();
+        
         Authors.Add(author);
         return Authors;
     }
 
     public List<LiteraryGender> AddLiteraryGenders(LiteraryGender literaryGender)
     {
+        LiteraryGenders ??= new List<LiteraryGender>();
+        
         LiteraryGenders.Add(literaryGender);
         return LiteraryGenders;
     }
@@ -59,7 +61,7 @@ public sealed class Book : BaseEntity
     public List<Review> AddReviews(Review review)
     {
         Reviews ??= new List<Review>();
-
+        
         Reviews.Add(review);
         return Reviews;
     }

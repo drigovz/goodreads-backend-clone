@@ -40,5 +40,5 @@ public class BookBuilder
     }
 
     public Book Build() =>
-        new(Title, Summary, Description, Thumb, new List<Author>(), new List<LiteraryGender>());
+        new(Title, Summary, Description, Thumb);
 }

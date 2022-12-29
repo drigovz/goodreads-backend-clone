@@ -6,6 +6,8 @@ public sealed class Review : BaseEntity
 {
     public string Comment { get; private set; }
     public int Likes { get; private set; } = 0;
+    public Book Book { get; set; }
+    public Guid BookId { get; set; }
 
     public Review(string comment, int likes)
     {
