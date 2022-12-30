@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Goodreads.Core\Goodreads.Core.csproj" />
+    <ProjectReference Include="..\Goodreads.Common.Test\Goodreads.Common.Test.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 using Bogus;
 using FluentAssertions;
-using Goodread.Core.Test.Builders;
+using Goodread.Common.Test.Builders;
 using Xunit;
 
 namespace Goodreads.Core.Test.Entities;

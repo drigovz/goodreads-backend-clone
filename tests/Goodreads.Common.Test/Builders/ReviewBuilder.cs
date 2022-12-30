@@ -1,7 +1,7 @@
 using Bogus;
 using Goodreads.Core.Entities;
 
-namespace Goodread.Core.Test.Builders;
+namespace Goodread.Common.Test.Builders;
 
 public class ReviewBuilder
 {

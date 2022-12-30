@@ -3,7 +3,7 @@ using Bogus;
 using Goodreads.Core.Entities;
 using Goodreads.Core.Enums;
 
-namespace Goodread.Core.Test.Builders;
+namespace Goodread.Common.Test.Builders;
 
 public class AuthorBuilder
 {
