@@ -1,9 +1,4 @@
-﻿using System;
-using Bogus;
-using Goodreads.Core.Entities;
-using Goodreads.Core.Enums;
-
-namespace Goodread.Common.Test.Builders;
+﻿namespace Goodread.Common.Test.Builders;
 
 public class AuthorBuilder
 {

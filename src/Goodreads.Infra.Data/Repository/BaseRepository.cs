@@ -31,7 +31,7 @@ public class BaseRepository<E, T> : IBaseRepository<E, Guid> where E : BaseEntit
     {
         try
         {
-            var entity = await _context.Set<E>().SingleOrDefaultAsync(_ => _.Id == id);
+            var entity = await _context.Set<E>().FindAsync(id);
             if (entity != null)
                 return entity;
             else
@@ -47,6 +47,7 @@ public class BaseRepository<E, T> : IBaseRepository<E, Guid> where E : BaseEntit
     {
         try
         {
+            entity.Id = Guid.NewGuid();
             entity.CreatedAt = DateTime.UtcNow;
 
             _context.Set<E>().Add(entity);

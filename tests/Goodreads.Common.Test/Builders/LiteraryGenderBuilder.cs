@@ -1,7 +1,4 @@
-﻿using Bogus;
-using Goodreads.Core.Entities;
-
-namespace Goodread.Common.Test.Builders;
+﻿namespace Goodread.Common.Test.Builders;
 
 public class LiteraryGenderBuilder
 {

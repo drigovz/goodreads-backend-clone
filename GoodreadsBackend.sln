@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "worflows", "worflows", "{F3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodreads.Common.Test", "tests\Goodreads.Common.Test\Goodreads.Common.Test.csproj", "{04A0D4EE-B4F5-4DD9-975D-6D54D68B2A7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goodreads.Infra.Data.Test", "tests\Goodreads.Infra.Data.Test\Goodreads.Infra.Data.Test.csproj", "{8779DFA8-41D4-486B-96AC-7BC850D4A00D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{04A0D4EE-B4F5-4DD9-975D-6D54D68B2A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04A0D4EE-B4F5-4DD9-975D-6D54D68B2A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04A0D4EE-B4F5-4DD9-975D-6D54D68B2A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8779DFA8-41D4-486B-96AC-7BC850D4A00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8779DFA8-41D4-486B-96AC-7BC850D4A00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8779DFA8-41D4-486B-96AC-7BC850D4A00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8779DFA8-41D4-486B-96AC-7BC850D4A00D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{B2636CA3-EE7E-4204-9078-ED0BF09A2BEB} = {5A950BC9-B850-494C-8949-7B2CB80A9387}
 		{F35CAAA7-BFAA-4095-9BDC-FA0E7057308E} = {240C71FE-3C9C-422A-BDEC-E051CB5E370E}
 		{04A0D4EE-B4F5-4DD9-975D-6D54D68B2A7A} = {5A950BC9-B850-494C-8949-7B2CB80A9387}
+		{8779DFA8-41D4-486B-96AC-7BC850D4A00D} = {5A950BC9-B850-494C-8949-7B2CB80A9387}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6F04218-F4C8-4B15-97A0-1F9915EE6533}

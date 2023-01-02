@@ -11,7 +11,7 @@ public abstract class BaseEntity
     public Guid Id
     {
         get => _id;
-        protected set => Guid.NewGuid();
+        set =>  _id = Guid.NewGuid();
     }
 
     private DateTime? _createdAt;

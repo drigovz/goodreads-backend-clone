@@ -1,9 +1,4 @@
-﻿using Bogus;
-using FluentAssertions;
-using Goodread.Common.Test.Builders;
-using Xunit;
-
-namespace Goodreads.Core.Test.Entities;
+﻿namespace Goodreads.Core.Test.Entities;
 
 public class LiteraryGenderTest
 {

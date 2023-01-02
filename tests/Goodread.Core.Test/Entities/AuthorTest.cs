@@ -1,9 +1,4 @@
-﻿using System;
-using Bogus;
-using FluentAssertions;
-using Goodread.Common.Test.Builders;
-using Goodreads.Core.Enums;
-using Xunit;
+﻿using Goodreads.Core.Enums;
 
 namespace Goodreads.Core.Test.Entities;
 
