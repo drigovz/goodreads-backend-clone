@@ -22,8 +22,7 @@ public class BaseRepository<E, T> : IBaseRepository<E, Guid> where E : BaseEntit
         await (await _context.Database
                 .BeginTransactionAsync(IsolationLevel.ReadCommitted))
             .RollbackAsync();
-
-
+    
     public async Task<IEnumerable<E>> GetAsync() =>
         await _context.Set<E>().ToListAsync();
 

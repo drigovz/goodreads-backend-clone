@@ -6,7 +6,7 @@ namespace Goodreads.Infra.Data.Context;
 
 public class AppDbContext : IdentityDbContext
 {
-    public DbSet<Author> Authors { get; set; }
+    public virtual DbSet<Author> Authors { get; set; }
     public DbSet<Book> Books { get; set; }
     public DbSet<LiteraryGender> LiteraryGenders { get; set; }
     public DbSet<Review> Reviews { get; set; }

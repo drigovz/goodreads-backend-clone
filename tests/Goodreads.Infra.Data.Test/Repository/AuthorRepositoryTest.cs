@@ -16,6 +16,32 @@ public class AuthorRepositoryTest
         _dbSetMock = new Mock<DbSet<Author>>();
     }
 
+    [Fact(Skip = "Error with Moq")]
+    [Trait("Infra.Data", "Author")]
+    public void Should_List_All_Authors()
+    {
+        var authorsList = new List<Author>
+        {
+            AuthorBuilder.New().Build(),
+            AuthorBuilder.New().Build(),
+            AuthorBuilder.New().Build(),
+        }.AsQueryable();
+        
+        _dbSetMock.As<IQueryable<Author>>().Setup(_ => _.Provider).Returns(authorsList.Provider);
+        _dbSetMock.As<IQueryable<Author>>().Setup(_ => _.Expression).Returns(authorsList.Expression);
+        _dbSetMock.As<IQueryable<Author>>().Setup(_ => _.ElementType).Returns(authorsList.ElementType);
+        _dbSetMock.As<IQueryable<Author>>().Setup(_ => _.GetEnumerator()).Returns(authorsList.GetEnumerator());
+        
+        _dbContextMock.Setup(c => c.Authors).Returns(_dbSetMock.Object);
+
+        var authorRepository = new AuthorRepository(_dbContextMock.Object);
+        var authors = authorRepository.GetAsync().Result;
+
+        authors.Should().NotBeNull();
+        authors.Should().BeAssignableTo<List<Author>>();
+        authors.Should().HaveCount(3);
+    }
+
     [Fact]
     [Trait("Infra.Data", "Author")]
     public void Should_Add_New_Author_With_AddAsync()
@@ -45,7 +71,7 @@ public class AuthorRepositoryTest
     [Trait("Infra.Data", "Author")]
     public void Should_Execute_GetByIdAsync_And_Returns_Author()
     {
-        _dbSetMock.Setup(s => s.FindAsync(It.IsAny<Guid>())).ReturnsAsync(_author);
+        _dbSetMock.Setup(_ => _.FindAsync(It.IsAny<Guid>())).ReturnsAsync(_author);
         _dbContextMock.Setup(_ => _.Set<Author>()).Returns(_dbSetMock.Object);
 
         var authorRepository = new AuthorRepository(_dbContextMock.Object);
